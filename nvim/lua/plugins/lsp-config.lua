@@ -20,7 +20,7 @@ return {
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({})
       lspconfig.ruby_lsp.setup({
-        cmd = {"/Users/max/.rbenv/shims/ruby-lsp"}
+         cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") }
       })
     end,
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Hover documentation LSP" }),
