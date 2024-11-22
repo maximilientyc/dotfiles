@@ -44,6 +44,19 @@ setup_nvim() {
     fi
 }
 
+
+# Setup default gems
+setup_default_gems() {
+    print_message "Setting up default gems..." "$GREEN$"
+    rm "$HOME/.default-gems"
+    ln -s "$PWD/.default-gems" "$HOME/.default-gems"
+    if [ $? -eq 0 ]; then
+        print_message "Default gem installed successfully!" "$GREEN"
+    else
+        print_message "Error: Failed to install default gems" "$RED"
+        exit 1
+    fi
+}
 # Main setup
 main() {
     print_message "Starting dotfiles setup..." "$GREEN"
@@ -55,7 +68,7 @@ main() {
     fi
     
     setup_nvim
-    
+    setup_default_gems
     print_message "Setup completed successfully!" "$GREEN"
 }
 
